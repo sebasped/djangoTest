@@ -1,0 +1,7 @@
+Reunión Start Up 8-Abr-2019 14 hs.
+
+backend Python/Django (para georayos2, crisis, bla bla)
+
+La idea es hacer una app de test para: 
+  - Probar Django como backend para JS
+  - Probar Djando como interface para la DB (abstracciones en particular)
