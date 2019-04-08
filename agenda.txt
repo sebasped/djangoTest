@@ -5,3 +5,8 @@ backend Python/Django (para georayos2, crisis, bla bla)
 La idea es hacer una app de test para: 
   - Probar Django como backend para JS
   - Probar Djando como interface para la DB (abstracciones en particular)
+
+
+Material de lectura:
+- https://scotch.io/tutorials/build-a-to-do-application-using-django-and-react
+
