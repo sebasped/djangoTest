@@ -1,0 +1,47 @@
+
+1. django-admin startproject mysite
+
+2. python manage.py startapp polls
+
+3. Creación inicial de las DBs:   python manage.py migrate
+
+4. Crear las clases en models.py de la app para las DBs
+
+5. Activar el modelo de la app en mysite/settings.py
+	agregar 
+		INSTALLED_APPS = [
+		    'polls.apps.PollsConfig',
+
+6. crear las cosas a partir de models para las DBs:  python manage.py makemigrations polls
+7. Hacer efectivamente lo anterior en las DBs:   python manage.py migrate
+
+8. Crear admin user:   python manage.py createsuperuser
+
+9. Hacer la app modificable por admin: polls/admin.py agregar
+	
+	from .models import Question
+
+	admin.site.register(Question)
+
+10. Crear un view
+	def index(request):
+	    return HttpResponse("Hello, world. You're at the polls index.")
+
+11. Agregar un polls/urls.py
+	from django.urls import path
+	from . import views
+
+	urlpatterns = [
+	    path('', views.index, name='index'),
+	]
+
+12. Agregar la ruta a la vista el mysite/urls.py
+	from django.contrib import admin
+	from django.urls import path, include
+
+	urlpatterns = [
+	    path('polls/', include('polls.urls')),
+	    path('admin/', admin.site.urls),
+	]
+
+13. 
