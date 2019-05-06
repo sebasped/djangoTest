@@ -2,9 +2,12 @@ django framwork
 
 
 
+instalar las cosas con el pipenv para que lo agregue al Pipfile (pues el pipenv lo hace en el environment)
+
+
 pipenv shell
 
-pip install django
+pipenv install django
 
 
 django-admin startproject mysite
@@ -17,6 +20,7 @@ python manage.py startapp polls
 
 
 python manage.py migrate
+
 
 
 
