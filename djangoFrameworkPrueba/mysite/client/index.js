@@ -4,9 +4,8 @@ import ReactDOM from 'react-dom';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 
 import MainPage from './components/main/MainPage';
-
 import HomePage from './components/home/HomePage';
-
+import QuestionsList from './components/questions/QuestionsList';
 
 //import ToDosList from './components/todos/ToDosList';
 //import ToDoForm from './components/todos/ToDoForm';
@@ -33,6 +32,7 @@ class Routes extends Component {
           <Switch>
               <RouteNest  path={'/main'} component={MainPage}>
                   <RouteNest  exact path={'/main/home'} component={HomePage}/>
+                  <RouteNest  exact path={'/main/questions'} component={QuestionsList}/>
               </RouteNest>
           </Switch>
       </Router>

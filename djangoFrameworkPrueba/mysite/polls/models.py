@@ -8,7 +8,7 @@ from django.db import models
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+    #pub_date = models.DateTimeField('date published')
     def __str__(self):  # método para qué es lo que devuelva en un print
         return self.question_text
     # def was_published_recently(self):

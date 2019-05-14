@@ -47,6 +47,7 @@ export default class Menu extends React.Component{
 					{navConfig}
 					<NavDropdown eventKey={3} title="Extras" id="basic-nav-dropdown">
 						<NavItem eventKey={3.1}><Link to="/main/home">Home</Link></NavItem>
+						<NavItem eventKey={3.2}><Link to="/main/questions">Questions</Link></NavItem>
 					</NavDropdown>		
 				</Nav>
 
