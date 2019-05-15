@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Grid, Row, Col, Well, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-//import ToDo from './ToDo';
-//import { fetchAll as fetchToDos} from '../../actions/todos';
+import Question from './Question';
+import {fetchAll} from '../../services/Questions';
 
 export default class QuestionsList extends Component {
 
@@ -20,16 +20,11 @@ export default class QuestionsList extends Component {
         this.loadData();
     }
     
-    loadData(){
+    async loadData(){
+        var items = await fetchAll();
+        console.log("Items: ", items);
         this.setState({
-            items: [
-                    {
-                    question_text: "Cual es la respuesta a la pregunta fundamental del universo, la vida?"
-                },
-                {
-                    question_text: "De donde venimos?"
-                },
-            ],
+            items: items,
             loaded: true,
         });
     }
@@ -42,37 +37,26 @@ export default class QuestionsList extends Component {
                 </div>
             );    
         } else {
-            var textos = this.state.items.map(function(item){
+            var itemsDOM = this.state.items.map(function(item){
                 return (
-                    <div>
-                        {item.question_text}
-                    </div>
+                    <Question key={item.id} item={item} />
                 );
             });
             return (
-                <div>
-                    {textos}
-                </div>
-            );
-        }
-        /*
-        return (
-            <Grid>
+                <Grid>
                 <Row style={{marginTop:'15px'}}>
                     <Col xs={12}>
-                        ToDos
+                        Questions
                         <div className="pull-right">
-                            <Link to="/main/todos/create" className="btn btn-xs btn-primary" role="button">Nuevo ToDo</Link>
+                            <Link to="/main/todos/create" className="btn btn-xs btn-primary" role="button">Nueva Question</Link>
                         </div>
-                        {items.map(item => (
-                            <ToDo key={item.id} item={item} />
-                        ))}
+                        {itemsDOM}
                     </Col>
                 </Row>
             </Grid>
+            ) ;         
 
-        );
-        */
+        }
     }
     
 }

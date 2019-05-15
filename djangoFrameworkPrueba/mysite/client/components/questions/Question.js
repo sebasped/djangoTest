@@ -1,21 +1,18 @@
 import React, {Component} from 'react';
 import {Grid, Row, Col, Well, Button} from 'react-bootstrap';
-import {connect} from 'react-redux';
 
 import history from "../../history";
-import {del, fetchAll as fetchToDos} from "../../actions/todos";
+//import {del, fetchAll as fetchToDos} from "../../actions/todos";
 
-class ToDo extends Component {
+export default class Question extends Component {
     
     async onDelete(){
-        await del(this.props.item.id);
-        //history.push("/main/todos"); // No se ejecuta... porque no cambia url.
-        this.props.dispatch(fetchToDos());
-
+        console.log("Borraria...");
     }
 
     onSelectItem(){
-        history.push("/main/todos/update/" + this.props.item.id);
+        //history.push("/main/todos/update/" + this.props.item.id);
+        console.log("Modificaria...");
     }
 
     render(){
@@ -24,10 +21,7 @@ class ToDo extends Component {
             <Well>
                 <Row>
                     <Col xs={12}>
-                        <h6>{this.props.item.title} </h6>
-                        <div>  
-                            {this.props.item.description}
-                        </div>
+                        <h6>{this.props.item.question_text} </h6>
                         <Button onClick={this.onDelete.bind(this)} bsStyle='danger'>Borrar</Button>
                         <Button onClick={this.onSelectItem.bind(this)}>Modificar</Button>
                     </Col>
@@ -39,12 +33,3 @@ class ToDo extends Component {
 
 
 }
-function mapStateToProps(state){
-    return {
-      todos: state.todos,
-    }
-}
-  
-  
-export default connect(mapStateToProps)(ToDo);
-  

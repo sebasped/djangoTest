@@ -8,7 +8,7 @@ from django.forms.models import model_to_dict
 
 
 def get_questions(request):
-    listaSQL = Question.objects.all().values().order_by('-pub_date')
+    listaSQL = Question.objects.all().values()#.order_by('-pub_date')
     lista = list(listaSQL) # convierto el Query SQL a una lista para poder pasarlo a json
     return JsonResponse(lista, safe=False)
 
