@@ -22,7 +22,6 @@ export default class QuestionsList extends Component {
     
     async loadData(){
         var items = await fetchAll();
-        console.log("Items: ", items);
         this.setState({
             items: items,
             loaded: true,
