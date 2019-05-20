@@ -3,7 +3,7 @@ import {Grid, Row, Col, Well, Button, FormGroup, ControlLabel, FormControl, Pane
 import history from "../../history";
 import $ from 'jquery';
 
-import {fetch} from '../../services/Questions';
+import {fetch, create} from '../../services/Questions';
 
 class QuestionForm extends Component {
 
@@ -28,19 +28,18 @@ class QuestionForm extends Component {
 
     async onSubmit(e){
         e.preventDefault();
-        /*
+        
         if (!this.state.id){
             await create({
-                title: $("#title").val(),
-                description: $("#description").val(),
+                question_text: $("#text").val(),
             });    
-        } else {
+        }/* else {
             await update(this.state.id,{
                 title: $("#title").val(),
                 description: $("#description").val(),
             });
-        }
-        */
+        }*/
+        
         console.log("Submiteando...");
         history.push("/main/questions");
     }

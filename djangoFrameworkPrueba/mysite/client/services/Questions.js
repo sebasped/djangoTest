@@ -26,5 +26,14 @@ export async function fetch(id){
     return response.data;
 }
 
+export async function create(item){
+    var token = cookie.load("token");
+    var params = {
+        token: token,
+        item: item,
+    };
+    var response = await axios.post("/polls/question/create/", params);
+    return response.data;
+}
 
 
