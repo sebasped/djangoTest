@@ -45,3 +45,8 @@
 	]
 
 13. 
+
+
+Authentication:
+https://thinkster.io/tutorials/django-json-api/authentication
+
