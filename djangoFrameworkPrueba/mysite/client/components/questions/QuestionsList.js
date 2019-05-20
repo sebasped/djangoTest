@@ -47,7 +47,7 @@ export default class QuestionsList extends Component {
                     <Col xs={12}>
                         Questions
                         <div className="pull-right">
-                            <Link to="/main/todos/create" className="btn btn-xs btn-primary" role="button">Nueva Question</Link>
+                            <Link to="/main/question/create" className="btn btn-xs btn-primary" role="button">Nueva Question</Link>
                         </div>
                         {itemsDOM}
                     </Col>

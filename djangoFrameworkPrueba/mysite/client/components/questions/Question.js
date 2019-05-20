@@ -11,8 +11,8 @@ export default class Question extends Component {
     }
 
     onSelectItem(){
-        //history.push("/main/todos/update/" + this.props.item.id);
-        console.log("Modificaria...");
+        console.log("PAra modificacion...");
+        history.push("/main/question/update/" + this.props.item.id);
     }
 
     render(){

@@ -17,3 +17,6 @@ def get_question_by_id(request,question_id):
     dict_obj = model_to_dict( obj )
     # return HttpResponse("Hello, world. You're at the polls index.")
     return JsonResponse(dict_obj, safe=False)
+
+
+
