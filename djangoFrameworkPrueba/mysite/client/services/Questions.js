@@ -36,4 +36,13 @@ export async function create(item){
     return response.data;
 }
 
+export async function update(id, item){
+    var token = cookie.load("token");
+    var params = {
+        token: token,
+        item: item,
+    };
+    var response = await axios.post("/polls/question/update/" + id + "/", params);
+    return response.data;
+}
 

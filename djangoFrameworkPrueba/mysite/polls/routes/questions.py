@@ -30,6 +30,12 @@ def create_item(request):
     m.save()
     return HttpResponse("Ok!")
 
+@csrf_exempt
+def update_item(request, question_id):
+    data = json.loads(request.body.decode("utf-8"))
+    item = data["item"]
+    Model.objects.filter(pk=question_id).update(**item)
+    return HttpResponse("Ok!")
 
 
 
