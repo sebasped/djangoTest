@@ -46,3 +46,12 @@ export async function update(id, item){
     return response.data;
 }
 
+export async function del(id){
+    var token = cookie.load("token");
+    var params = {
+        token: token,
+    };
+    var response = await axios.delete("/polls/question/delete/" + id + "/", params);
+    return response.data;
+}
+

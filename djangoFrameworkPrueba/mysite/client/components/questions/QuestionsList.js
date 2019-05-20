@@ -3,7 +3,7 @@ import {Grid, Row, Col, Well, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 import Question from './Question';
-import {fetchAll} from '../../services/Questions';
+import {fetchAll, del} from '../../services/Questions';
 
 export default class QuestionsList extends Component {
 
@@ -20,6 +20,11 @@ export default class QuestionsList extends Component {
         this.loadData();
     }
     
+
+    refresh(){
+        this.loadData();
+    }
+
     async loadData(){
         var items = await fetchAll();
         this.setState({
@@ -29,6 +34,7 @@ export default class QuestionsList extends Component {
     }
 
     render(){
+        var me = this;
         if (!this.state.loaded){
             return (
                 <div>
@@ -38,7 +44,7 @@ export default class QuestionsList extends Component {
         } else {
             var itemsDOM = this.state.items.map(function(item){
                 return (
-                    <Question key={item.id} item={item} />
+                    <Question key={item.id} item={item} refresh={me.refresh.bind(me)}/>
                 );
             });
             return (

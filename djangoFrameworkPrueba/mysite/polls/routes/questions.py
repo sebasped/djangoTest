@@ -38,4 +38,9 @@ def update_item(request, question_id):
     return HttpResponse("Ok!")
 
 
+@csrf_exempt
+def delete_item(request, question_id):
+    Model.objects.filter(id=question_id).delete()
+    return HttpResponse("Ok!")
+
 

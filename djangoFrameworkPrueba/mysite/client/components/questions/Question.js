@@ -2,16 +2,17 @@ import React, {Component} from 'react';
 import {Grid, Row, Col, Well, Button} from 'react-bootstrap';
 
 import history from "../../history";
-//import {del, fetchAll as fetchToDos} from "../../actions/todos";
+import {del} from '../../services/Questions';
 
 export default class Question extends Component {
     
     async onDelete(){
-        console.log("Borraria...");
+        del(this.props.item.id);
+        //history.push("/main/questions/"); // No anda.
+        this.props.refresh();
     }
 
     onSelectItem(){
-        console.log("PAra modificacion...");
         history.push("/main/question/update/" + this.props.item.id);
     }
 
